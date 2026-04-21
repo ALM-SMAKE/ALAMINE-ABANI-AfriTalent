@@ -3,9 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>AfriTalent - Contact</title>
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Afri <span>Talent</span></a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="freelance.html">Freelances</a></li>
+                <li class="nav-item"><a class="nav-link" href="tarif.html">Tarifs</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">A propos</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<section class="text-center text-white d-flex align-items-center" style="height:50vh; background:#222;">
+    <div class="container">
+        <h1>Contactez-nous</h1>
+        <p>Une question ? Un projet ? Écrivez-nous </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h3>Envoyer un message</h3>
+
+                <form id="contactForm" novalidate>
+
+                    <input type="text" id="nom" class="form-control mb-2" placeholder="Nom">
+                    <small class="text-danger" id="errorNom"></small>
+
+                    <input type="text" id="prenom" class="form-control mb-2" placeholder="Prénom">
+                    <small class="text-danger" id="errorPrenom"></small>
+
+                    <input type="email" id="email" class="form-control mb-2" placeholder="Email">
+                    <small class="text-danger" id="errorEmail"></small>
+
+                    <select id="sujet" class="form-control mb-2">
+                        <option value="">Choisir un sujet</option>
+                        <option>Demande</option>
+                        <option>Support</option>
+                        <option>Collaboration</option>
+                    </select>
+                    <small class="text-danger" id="errorSujet"></small>
+
+                    <textarea id="message" class="form-control mb-2" rows="5" placeholder="Votre message"></textarea>
+                    <small class="text-danger" id="errorMessage"></small>
+
+                    <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+
+                    <p id="successMsg" class="text-success mt-3"></p>
+
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Informations</h3>
+
+                <p><strong>Email :</strong> kingston@afritalent.com</p>
+                <p><strong>Téléphone :</strong> +221 77 750 78 57</p>
+                <p><strong>Adresse :</strong> Dakar, Sénégal</p>
+
+                <iframe 
+                    src="https://maps.google.com/maps?q=dakar&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="250" style="border:0;">
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="bg-dark text-white text-center p-3">
+    <p>© 2026 AfriTalent</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>
