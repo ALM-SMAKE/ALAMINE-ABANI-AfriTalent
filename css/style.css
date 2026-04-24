@@ -1,0 +1,95 @@
+:root {
+    --primary: #0d6efd;
+    --dark: #111;
+    --light: #f8f9fa;
+    --text: #333;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text);
+}
+
+.navbar {
+    transition: 0.3s;
+}
+
+.navbar-brand span {
+    color: var(--primary);
+}
+
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+}
+
+#hero h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+#hero em {
+    color: var(--primary);
+    font-style: normal;
+}
+
+#hero p {
+    font-size: 1.2rem;
+}
+
+section {
+    padding: 60px 0;
+}
+.card {
+    border: none;
+    border-radius: var(--radius);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn {
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 40px;
+}
+
+.rounded-circle {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.badge {
+    font-size: 0.8rem;
+}
+
+form input, form textarea, form select {
+    border-radius: var(--radius);
+}
+
+iframe {
+    border-radius: var(--radius);
+}
+/*rendre flexible*/
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2rem;
+    }
+}
