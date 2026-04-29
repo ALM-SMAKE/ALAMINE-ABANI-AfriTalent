@@ -113,3 +113,30 @@ iframe {
         font-size: 2rem;
     }
 }
+/* pour tablette */
+@media (max-width: 992px) {
+    .bento {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* pour telephone */
+@media (max-width: 768px) {
+
+    #hero {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    #hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .bento {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+}
