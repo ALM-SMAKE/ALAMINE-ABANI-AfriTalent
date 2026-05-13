@@ -81,6 +81,13 @@ section {
     border-radius: 30px;
     padding: 10px 20px;
 }
+.carousel-item {
+    min-height: 200px;
+}
+
+.carousel-item p {
+    font-size: 1.2rem;
+}
 
 h1, h2, h3 {
     font-weight: bold;
@@ -139,4 +146,13 @@ iframe {
     .navbar {
         text-align: center;
     }
+}
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border: none;
+    background: blue;
+    color: white;
 }

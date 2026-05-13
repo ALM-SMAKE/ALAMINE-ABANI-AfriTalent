@@ -9,11 +9,12 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    
+<body> 
+    <button id="topBtn" style="display:none;">↑</button>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Afri <span>Talent</span></a>
+            <a class="navbar-brand" href="index.html">Afri<span>Talent</span></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -26,6 +27,7 @@
                     <li class="nav-item"><a class="nav-link" href="tarif.html">Tarifs</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <button id="darkModeToggle" class="btn btn-outline-light ms-3">🌙</button>
                 </ul>
             </div>
         </div>
@@ -220,31 +222,54 @@
     </section>
 
     <section class="py-5 text-center">
-        <div class="container">
-            <h2>Témoignages</h2>
+            <div class="container">
+                <h2>Témoignages</h2>
 
-            <div id="carouselExample" class="carousel slide mt-4">
-                <div class="carousel-inner">
+                <div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel">
 
-                    <div class="carousel-item active">
-                        <p>"Grâce à AfriTalent, nous avons trouvé un développeur en 24h."</p>
-                        <strong>Startup Dakar</strong>
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
                     </div>
 
-                    <div class="carousel-item">
-                        <p>"Plateforme simple et efficace."</p>
-                        <strong>Entreprise Tech</strong>
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <div class="p-4">
+                                <p>"Grâce à AfriTalent, nous avons trouvé un développeur en 24h."</p>
+                                <strong>Startup Dakar</strong>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="p-4">
+                                <p>"Plateforme simple et efficace."</p>
+                                <strong>Entreprise Tech</strong>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="p-4">
+                                <p>"J'ai trouvé plusieurs clients rapidement."</p>
+                                <strong>Freelance Sénégal</strong>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="carousel-item">
-                        <p>"J'ai trouvé plusieurs clients rapidement."</p>
-                        <strong>Freelance Sénégal</strong>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
 
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
 
     <section class="bg-dark text-white text-center py-5">
         <h2>Rejoignez AfriTalent dès maintenant</h2>
