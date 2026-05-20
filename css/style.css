@@ -156,3 +156,33 @@ iframe {
     background: blue;
     color: white;
 }
+/*le bouton dark/light*/
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode section {
+    background-color: #121212 !important;
+    color: white;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark-mode footer {
+    background-color: black !important;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
