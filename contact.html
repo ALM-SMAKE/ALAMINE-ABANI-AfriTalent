@@ -44,39 +44,87 @@
 
 <section class="py-5">
     <div class="container">
-        <div class="row">
+        <div class="container">
 
-            <div class="col-md-6">
-                <h3>Envoyer un message</h3>
+        <h2 class="text-center mb-5">
+            Contactez-nous
+        </h2>
 
-                <form id="contactForm" novalidate>
+        <form id="contactForm">
 
-                    <input type="text" id="nom" class="form-control mb-2" placeholder="Nom">
-                    <small class="text-danger" id="errorNom"></small>
+            <div class="mb-3">
 
-                    <input type="text" id="prenom" class="form-control mb-2" placeholder="Prénom">
-                    <small class="text-danger" id="errorPrenom"></small>
+                <label class="form-label">
+                    Nom
+                </label>
 
-                    <input type="email" id="email" class="form-control mb-2" placeholder="Email">
-                    <small class="text-danger" id="errorEmail"></small>
+                <input 
+                    type="text"
+                    class="form-control"
+                    id="nom"
+                >
 
-                    <select id="sujet" class="form-control mb-2">
-                        <option value="">Choisir un sujet</option>
-                        <option>Demande</option>
-                        <option>Support</option>
-                        <option>Collaboration</option>
-                    </select>
-                    <small class="text-danger" id="errorSujet"></small>
+                <small id="nomError" class="text-danger"></small>
 
-                    <textarea id="message" class="form-control mb-2" rows="5" placeholder="Votre message"></textarea>
-                    <small class="text-danger" id="errorMessage"></small>
-
-                    <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
-
-                    <p id="successMsg" class="text-success mt-3"></p>
-
-                </form>
             </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Email
+                </label>
+
+                <input 
+                    type="email"
+                    class="form-control"
+                    id="email"
+                >
+
+                <small id="emailError" class="text-danger"></small>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Sujet
+                </label>
+
+                <input 
+                    type="text"
+                    class="form-control"
+                    id="sujet"
+                >
+
+                <small id="sujetError" class="text-danger"></small>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Message
+                </label>
+
+                <textarea 
+                    class="form-control"
+                    rows="5"
+                    id="message"
+                ></textarea>
+
+                <small id="messageError" class="text-danger"></small>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Envoyer
+            </button>
+
+            <p id="successMessage" class="text-success mt-3"></p>
+
+        </form>
+
+    </div>
 
             <div class="col-md-6">
                 <h3>Informations</h3>

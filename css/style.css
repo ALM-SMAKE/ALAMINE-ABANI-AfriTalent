@@ -3,7 +3,14 @@
     --dark: #111;
     --light: #f8f9fa;
     --text: #333;
+    --white: #ffffff;
+    /*TAILLES*/
     --radius: 12px;
+    --section-padding: 60px;
+    --transition: 0.3s;
+    /*POLICES*/
+    --title-size: 2.8rem;
+    --text-size: 1rem;
 }
 
 * {
@@ -15,10 +22,11 @@
 body {
     font-family: Arial, sans-serif;
     color: var(--text);
+    background: var(--white);
 }
 
 .navbar {
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .navbar-brand span {
@@ -26,12 +34,32 @@ body {
 }
 
 #hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.7)
+        ),
+        linear-gradient(135deg, #0d6efd, #000);
+
+    color: white;
 }
 
-#hero {
-    background: linear-gradient(135deg, #0d6efd, #000);
-    color: white;
+#hero h1 {
+    font-size: var(--title-size);
+    font-weight: bold;
+}
+
+#hero em {
+    color: var(--primary);
+    font-style: normal;
+}
+
+#hero p {
+    font-size: 1.2rem;
+}
+
+section {
+    padding: var(--section-padding) 0;
 }
 
 .bento {
@@ -48,39 +76,27 @@ body {
     grid-row: span 2;
 }
 
-
-#hero h1 {
-    font-size: 2.8rem;
-    font-weight: bold;
-}
-
-#hero em {
-    color: var(--primary);
-    font-style: normal;
-}
-
-#hero p {
-    font-size: 1.2rem;
-}
-
-section {
-    padding: 60px 0;
-}
 .card {
     border: none;
     border-radius: var(--radius);
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .card:hover {
     transform: translateY(-10px) scale(1.02);
+
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+
+/* BOUTONS*/
 
 .btn {
     border-radius: 30px;
     padding: 10px 20px;
 }
+
+/*CAROUSEL*/
+
 .carousel-item {
     min-height: 200px;
 }
@@ -89,13 +105,21 @@ section {
     font-size: 1.2rem;
 }
 
-h1, h2, h3 {
+/*TITRES */
+
+h1,
+h2,
+h3 {
     font-weight: bold;
 }
+
+/* FOOTER */
 
 footer {
     margin-top: 40px;
 }
+
+/* IMAGES*/
 
 .rounded-circle {
     width: 100px;
@@ -103,60 +127,54 @@ footer {
     object-fit: cover;
 }
 
+/* BADGES  */
+
 .badge {
     font-size: 0.8rem;
 }
 
-form input, form textarea, form select {
+/*FORMULAIRES */
+
+form input,
+form textarea,
+form select {
     border-radius: var(--radius);
 }
+
+/* MAP */
 
 iframe {
     border-radius: var(--radius);
 }
-/*rendre flexible*/
-@media (max-width: 768px) {
-    #hero h1 {
-        font-size: 2rem;
-    }
-}
-/* pour tablette */
-@media (max-width: 992px) {
-    .bento {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-/* pour telephone */
-@media (max-width: 768px) {
+/* BOUTON RETOUR HAUT */
 
-    #hero {
-        height: auto;
-        padding: 80px 20px;
-    }
-
-    #hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .bento {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar {
-        text-align: center;
-    }
-}
 #topBtn {
+
     position: fixed;
+
     bottom: 20px;
+
     right: 20px;
-    padding: 10px;
+
+    padding: 10px 15px;
+
     border: none;
-    background: blue;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
     color: white;
+
+    cursor: pointer;
+
+    z-index: 999;
+
 }
-/*le bouton dark/light*/
+
+/*DARK MODE*/
+
 .dark-mode {
     background-color: #121212;
     color: white;
@@ -176,13 +194,58 @@ iframe {
     background-color: black !important;
 }
 
+/*ANIMATIONS  */
+
 .hidden {
+
     opacity: 0;
+
     transform: translateY(50px);
+
     transition: all 0.8s ease;
+
 }
 
 .show {
+
     opacity: 1;
+
     transform: translateY(0);
+
+}
+
+/* RESPONSIVE TABLETTE */
+
+@media (max-width: 992px) {
+
+    .bento {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 768px) {
+
+    #hero {
+
+        height: auto;
+
+        padding: 80px 20px;
+
+    }
+
+    #hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .bento {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
 }

@@ -39,8 +39,6 @@ bouton.addEventListener("click", function () {
     window.scrollTo(0, 0);
 });
 
-
-
 // COMPTEURS
 function compteur(id, fin) {
 
@@ -99,3 +97,133 @@ function afficherElements() {
 }
 
 afficherElements();
+
+function filtrer(categorie) {
+    let cartes = document.querySelectorAll(".freelance-card");
+    cartes.forEach(function(carte) {
+        if (
+            categorie === "all" ||
+            carte.dataset.cat === categorie
+        ) {
+            carte.style.display = "";
+        } else {
+            carte.style.display = "none";
+        }
+    });
+}
+
+// VALIDATION FORMULAIRE CONTACT
+
+let form = document.getElementById("contactForm");
+
+if (form) {
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        // RECUPERATION DES VALEURS
+
+        let nom = document.getElementById("nom").value.trim();
+
+        let email = document.getElementById("email").value.trim();
+
+        let sujet = document.getElementById("sujet").value.trim();
+
+        let message = document.getElementById("message").value.trim();
+
+        // ZONES D'ERREURS
+
+        let nomError = document.getElementById("nomError");
+
+        let emailError = document.getElementById("emailError");
+
+        let sujetError = document.getElementById("sujetError");
+
+        let messageError = document.getElementById("messageError");
+
+        let successMessage = document.getElementById("successMessage");
+
+        // RESET
+
+        nomError.innerText = "";
+
+        emailError.innerText = "";
+
+        sujetError.innerText = "";
+
+        messageError.innerText = "";
+
+        successMessage.innerText = "";
+
+        let valide = true;
+
+        // NOM
+
+        if (nom === "") {
+
+            nomError.innerText = "Veuillez entrer votre nom";
+
+            valide = false;
+
+        }
+
+        // EMAIL
+
+        let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+
+            emailError.innerText = "Veuillez entrer votre email";
+
+            valide = false;
+
+        } else if (!regexEmail.test(email)) {
+
+            emailError.innerText = "Email invalide";
+
+            valide = false;
+
+        }
+
+        // SUJET
+
+        if (sujet === "") {
+
+            sujetError.innerText = "Veuillez entrer un sujet";
+
+            valide = false;
+
+        }
+
+        // MESSAGE
+
+        if (message === "") {
+
+            messageError.innerText = "Veuillez entrer un message";
+
+            valide = false;
+
+        } else if (message.length < 20) {
+
+            messageError.innerText =
+                "Le message doit contenir au moins 20 caractères";
+
+            valide = false;
+
+        }
+
+        // SUCCES
+
+        if (valide) {
+
+            successMessage.innerText =
+                "Message envoyé avec succès !";
+
+            form.reset();
+
+        }
+
+    });
+
+}
