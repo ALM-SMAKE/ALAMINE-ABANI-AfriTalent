@@ -1,444 +1,329 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AfriTalent - Accueil</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
     <button id="topBtn" style="display:none;">↑</button>
+    <div id="navOverlay" class="nav-overlay"></div>
+
+    <!-- ================= NAVBAR ================= -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
         <div class="container">
-
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand fw-bold" href="index.html">
                 Afri<span>Talent</span>
             </a>
-
-            <button 
+            <button
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navMenu"
-            >
+                data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navMenu">
-
-                <ul class="navbar-nav ms-auto align-items-center">
-
+                <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">
+                        <a class="nav-link" href="index.html">
                             Accueil
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="freelance.html">
                             Freelances
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="tarif.html">
                             Tarifs
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">
                             A propos
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">
                             Contact
                         </a>
                     </li>
-
                     <li class="nav-item">
-                        <button id="darkModeToggle" class="btn btn-outline-light ms-3">
+                        <a class="nav-link active" href="blog.html">
+                            Blog
+                        </a>
+                    </li>
+                    <!-- BOUTON REJOINDRE -->
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="contact.html"
+                        class="btn btn-primary fw-bold">
+                            Rejoindre AfriTalent
+                        </a>
+                    </li>
+                    <!-- DARK MODE -->
+                    <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+                        <button
+                            id="darkModeToggle"
+                            class="btn btn-outline-light">
                             🌙
                         </button>
                     </li>
-
                 </ul>
-
             </div>
-
         </div>
-
     </nav>
 
     <main>
 
-        <section 
-            id="hero"
-            class="text-center text-white d-flex align-items-center"
-            style="height:100vh; background:#222;"
-        >
-
+        <!-- HERO -->
+        <section id="hero" class="text-white d-flex align-items-center">
             <div class="container">
-
-                <h1>
-                    Connectez-vous aux <br>
-                    meilleurs <em>talents tech</em> d'Afrique
-                </h1>
-
-                <p class="mt-3">
-                    AfriTalent connecte freelances et entreprises
-                    pour créer des projets innovants.
-                </p>
-
-                <a href="freelance.html" class="btn btn-primary m-2">
-                    Je cherche un freelance
-                </a>
-
-                <a href="freelance.html" class="btn btn-outline-light m-2">
-                    Je suis freelance
-                </a>
-
-                <div class="row mt-5">
-
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hidden">
+                        <span class="badge bg-primary mb-3 p-2">Plateforme N°1 des talents africains</span>
+                        <h1>Connectez-vous aux<br>meilleurs <em>talents tech</em> d'Afrique</h1>
+                        <p class="mt-4">AfriTalent connecte les entreprises, startups et freelances pour créer les projets innovants de demain.</p>
+                        <div class="mt-4">
+                            <a href="freelance.html" class="btn btn-primary btn-lg me-2">Je cherche un freelance</a>
+                            <a href="contact.html" class="btn btn-outline-light btn-lg">Je suis freelance</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center hidden">
+                        <img src="images/kng.png" alt="Talents africains" class="img-fluid hero-img">
+                    </div>
+                </div>
+                <div class="row text-center mt-5">
                     <div class="col-md-4">
                         <h2 id="count1">0</h2>
                         <p>Freelances</p>
                     </div>
-
                     <div class="col-md-4">
                         <h2 id="count2">0</h2>
                         <p>Entreprises</p>
                     </div>
-
                     <div class="col-md-4">
                         <h2 id="count3">0</h2>
                         <p>Missions réalisées</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-        <section class="py-5 text-center bg-light hidden">
-
+        <!-- POURQUOI -->
+        <section class="py-5 bg-light hidden">
             <div class="container">
-
-                <h2 class="mb-3">
-                    Pourquoi choisir AfriTalent ?
-                </h2>
-
-                <p class="mb-5">
-                    Une plateforme pensée pour connecter talents
-                    et entreprises efficacement
-                </p>
-
+                <div class="text-center mb-5">
+                    <h2>Pourquoi choisir AfriTalent ?</h2>
+                    <p>Une plateforme pensée pour connecter talents et entreprises efficacement.</p>
+                </div>
                 <div class="row g-4">
-
                     <div class="col-md-4">
                         <div class="card p-4 h-100">
                             <h5>Recherche rapide</h5>
-                            <p>
-                                Trouvez le freelance idéal
-                                en quelques secondes.
-                            </p>
+                            <p>Trouvez le freelance idéal en quelques secondes grâce à notre moteur intelligent.</p>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="card p-4 h-100">
                             <h5>Paiements sécurisés</h5>
-                            <p>
-                                Toutes les transactions sont protégées.
-                            </p>
+                            <p>Toutes les transactions sont protégées et vérifiées.</p>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="card p-4 h-100">
                             <h5>Talents africains</h5>
-                            <p>
-                                Accédez à une communauté qualifiée.
-                            </p>
+                            <p>Accédez à une communauté de professionnels qualifiés.</p>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="card p-4 h-100">
                             <h5>Communication simple</h5>
-                            <p>
-                                Discutez facilement avec les freelances.
-                            </p>
+                            <p>Discutez directement avec les freelances.</p>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="card p-4 h-100">
                             <h5>Suivi des projets</h5>
-                            <p>
-                                Gardez un œil sur l'avancement.
-                            </p>
+                            <p>Contrôlez l'avancement de chaque mission.</p>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="card p-4 h-100">
                             <h5>Fiabilité</h5>
-                            <p>
-                                Des profils vérifiés et compétents.
-                            </p>
+                            <p>Des profils vérifiés pour des collaborations de qualité.</p>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
+        <!-- COMMENT ÇA MARCHE -->
         <section class="py-5 text-center hidden">
-
             <div class="container">
-
-                <h2>Comment ça marche</h2>
-
-                <div class="bento mt-4">
-
+                <h2>Comment ça marche ?</h2>
+                <div class="bento mt-5">
                     <div class="card p-4">
                         <h4>1. Inscription</h4>
-                        <p>Créez votre compte gratuitement</p>
+                        <p>Créez votre compte gratuitement.</p>
                     </div>
-
                     <div class="card p-4">
                         <h4>2. Recherche</h4>
-                        <p>Trouvez les meilleurs freelances</p>
+                        <p>Trouvez les meilleurs freelances.</p>
                     </div>
-
                     <div class="card p-4">
                         <h4>3. Collaboration</h4>
-                        <p>Travaillez facilement</p>
+                        <p>Travaillez facilement ensemble.</p>
                     </div>
-
                     <div class="card p-4">
                         <h4>4. Paiement</h4>
-                        <p>Transactions sécurisées</p>
+                        <p>Transactions rapides et sécurisées.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-        <section class="py-5 bg-light text-center hidden">
-
+        <!-- CATÉGORIES -->
+        <section class="py-5 bg-light hidden">
             <div class="container">
-
-                <h2>Catégories populaires</h2>
-
-                <div class="row mt-4">
-
-                    <div class="col-md-4 mb-3">
-                        <div class="card p-3">
+                <div class="text-center mb-5">
+                    <h2>Catégories populaires</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card p-4 text-center">
                             <h5>Développement Web</h5>
                             <p>+500 freelances</p>
                         </div>
                     </div>
-
-                    <div class="col-md-4 mb-3">
-                        <div class="card p-3">
+                    <div class="col-md-4">
+                        <div class="card p-4 text-center">
                             <h5>Design UI/UX</h5>
                             <p>+300 freelances</p>
                         </div>
                     </div>
-
-                    <div class="col-md-4 mb-3">
-                        <div class="card p-3">
+                    <div class="col-md-4">
+                        <div class="card p-4 text-center">
                             <h5>Marketing Digital</h5>
                             <p>+400 freelances</p>
                         </div>
                     </div>
-
-                    <div class="col-md-4 mb-3">
-                        <div class="card p-3">
+                    <div class="col-md-4">
+                        <div class="card p-4 text-center">
                             <h5>Data & IA</h5>
                             <p>+200 freelances</p>
                         </div>
                     </div>
-
-                    <div class="col-md-4 mb-3">
-                        <div class="card p-3">
-                            <h5>Rédaction Tech</h5>
-                            <p>+150 freelances</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-                        <div class="card p-3">
+                    <div class="col-md-4">
+                        <div class="card p-4 text-center">
                             <h5>DevOps & Cloud</h5>
                             <p>+250 freelances</p>
                         </div>
                     </div>
-
+                    <div class="col-md-4">
+                        <div class="card p-4 text-center">
+                            <h5>Rédaction Tech</h5>
+                            <p>+150 freelances</p>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
         </section>
 
+        <!-- TÉMOIGNAGES -->
         <section class="py-5 text-center hidden">
-
             <div class="container">
-
-                <h2>Pourquoi choisir AfriTalent ?</h2>
-
-                <div class="row mt-4">
-
-                    <div class="col-md-4">
-                        <h4>Qualité</h4>
-                        <p>Freelances vérifiés et compétents.</p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h4>Rapidité</h4>
-                        <p>Trouvez un expert en 48h.</p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h4>Sécurité</h4>
-                        <p>Paiements sécurisés.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="py-5 text-center hidden">
-
-            <div class="container">
-
-                <h2>Témoignages</h2>
-
-                <div 
-                    id="carouselExample"
-                    class="carousel slide mt-4"
-                    data-bs-ride="carousel"
-                >
-
+                <h2 class="mb-5">Ce que disent nos utilisateurs</h2>
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-
-                        <button 
-                            type="button"
-                            data-bs-target="#carouselExample"
-                            data-bs-slide-to="0"
-                            class="active"
-                        ></button>
-
-                        <button 
-                            type="button"
-                            data-bs-target="#carouselExample"
-                            data-bs-slide-to="1"
-                        ></button>
-
-                        <button 
-                            type="button"
-                            data-bs-target="#carouselExample"
-                            data-bs-slide-to="2"
-                        ></button>
-
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
                     </div>
-
                     <div class="carousel-inner">
-
                         <div class="carousel-item active">
-                            <div class="p-4">
-                                <p>
-                                    "Grâce à AfriTalent,
-                                    nous avons trouvé un développeur en 24h."
-                                </p>
-                                <strong>Startup Dakar</strong>
+                            <div class="card p-4 shadow border-0 mx-auto" style="max-width:700px;">
+                                <img src="images/AVATAR 2.webp" alt="Avatar2" class="rounded-circle mx-auto mb-3" width="100" height="100">
+                                <div class="mb-3">⭐⭐⭐⭐⭐</div>
+                                <p>"J'ai trouvé un développeur compétent en moins de 24 heures grâce à AfriTalent."</p>
+                                <strong>Entreprise Clientèle</strong>
                             </div>
                         </div>
-
                         <div class="carousel-item">
-                            <div class="p-4">
-                                <p>
-                                    "Plateforme simple et efficace."
-                                </p>
-                                <strong>Entreprise Tech</strong>
+                            <div class="card p-4 shadow border-0 mx-auto" style="max-width:700px;">
+                                <img src="images/avatar 1.webp" alt="Avatar1" class="rounded-circle mx-auto mb-3" width="100" height="100">
+                                <div class="mb-3">⭐⭐⭐⭐⭐</div>
+                                <p>"La plateforme est intuitive et facilite énormément le recrutement."</p>
+                                <strong>Société partenaire</strong>
                             </div>
                         </div>
-
                         <div class="carousel-item">
-                            <div class="p-4">
-                                <p>
-                                    "J'ai trouvé plusieurs clients rapidement."
-                                </p>
-                                <strong>Freelance Sénégal</strong>
+                            <div class="card p-4 shadow border-0 mx-auto" style="max-width:700px;">
+                                <img src="images/avatar 3.webp" alt="Avatar3" class="rounded-circle mx-auto mb-3" width="100" height="100">
+                                <div class="mb-3">⭐⭐⭐⭐☆</div>
+                                <p>"Mes premières missions sont arrivées quelques jours après mon inscription."</p>
+                                <strong>Freelance vérifié</strong>
                             </div>
                         </div>
-
                     </div>
-
-                    <button 
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselExample"
-                        data-bs-slide="prev"
-                    >
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-
-                    <button 
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselExample"
-                        data-bs-slide="next"
-                    >
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                 </div>
-
             </div>
-
         </section>
 
+        <!-- PARTENAIRES -->
+        <section class="py-5 bg-light text-center hidden">
+            <div class="container">
+                <h2 class="mb-5"><i>Nos Fidèles Partenaires</i></h2>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="card p-4">
+                            <h4>Orange</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card p-4">
+                            <h4>Wave</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card p-4">
+                            <h4>Sonatel</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card p-4">
+                            <h4>Expresso</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA -->
         <section class="bg-dark text-white text-center py-5 hidden">
-
-            <h2>Rejoignez AfriTalent dès maintenant</h2>
-
-            <a href="#" class="btn btn-primary mt-3">
-                S'inscrire
-            </a>
-
+            <div class="container">
+                <h2>Rejoignez AfriTalent dès aujourd'hui</h2>
+                <p class="mt-3">Trouvez les meilleurs talents ou développez votre activité freelance.</p>
+                <a href="contact.html" class="btn btn-primary mt-3">Commencer maintenant</a>
+            </div>
         </section>
 
     </main>
 
-    <footer class="bg-dark text-white text-center p-3">
-
-        <p>
-            Copyright © 2026 AfriTalent Inc.   Tous droits réservés.
-        </p>
-
+    <footer class="bg-dark text-white text-center p-4">
+        <p class="mb-0">© <span id="currentYear"></span> AfriTalent - Tous droits réservés</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="js/main.js"></script>
-
 </body>
 </html>

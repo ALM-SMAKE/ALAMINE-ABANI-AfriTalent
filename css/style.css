@@ -1,251 +1,550 @@
 :root {
     --primary: #0d6efd;
-    --dark: #111;
-    --light: #f8f9fa;
-    --text: #333;
+    --secondary: #6610f2;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --text: #334155;
     --white: #ffffff;
-    /*TAILLES*/
-    --radius: 12px;
-    --section-padding: 60px;
-    --transition: 0.3s;
-    /*POLICES*/
-    --title-size: 2.8rem;
+    --radius: 20px;
+    --section-padding: 80px;
+    --transition: 0.4s;
+    --title-size: 3rem;
     --text-size: 1rem;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", sans-serif;
     color: var(--text);
-    background: var(--white);
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    overflow-x: hidden;
 }
 
+/* =====================
+   NAVBAR
+===================== */
 .navbar {
+    backdrop-filter: blur(15px);
+    background: rgba(17, 17, 17, 0.95) !important;
     transition: var(--transition);
+    padding: 0;
 }
 
-.navbar-brand span {
-    color: var(--primary);
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem 0;
 }
 
+.navbar-brand span { color: var(--primary); }
+
+/* =====================
+   MENU BURGER CUSTOM
+===================== */
+
+/* Bouton burger */
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 5px;
+    transition: .3s;
+    padding: 0;
+    z-index: 1100;
+}
+
+.burger-btn:hover {
+    border-color: var(--primary);
+    background: rgba(13,110,253,0.1);
+}
+
+.burger-btn .bar {
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all .35s ease;
+    transform-origin: center;
+}
+
+/* Animation X quand ouvert */
+.burger-btn.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.burger-btn.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.burger-btn.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu overlay mobile */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-menu .nav-link {
+    color: rgba(255,255,255,0.8) !important;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.nav-menu .nav-link:hover,
+.nav-menu .nav-link.active {
+    color: white !important;
+    background: rgba(13,110,253,0.2);
+}
+
+/* Bouton dark mode dans nav */
+#darkModeToggle {
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    margin-left: 8px;
+}
+
+#darkModeToggle:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+}
+
+/* =====================
+   RESPONSIVE BURGER
+===================== */
+@media (max-width: 992px) {
+
+    .burger-btn { display: flex; }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 24px 40px;
+        gap: 4px;
+        z-index: 1050;
+        transition: right .4s cubic-bezier(.4,0,.2,1);
+        border-left: 1px solid rgba(255,255,255,0.08);
+        overflow-y: auto;
+    }
+
+    .nav-menu.open { right: 0; }
+
+    .nav-menu .nav-link {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    #darkModeToggle {
+        margin: 16px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Overlay sombre derrière le menu */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1040;
+        backdrop-filter: blur(2px);
+    }
+
+    .nav-overlay.open { display: block; }
+}
+
+/* =====================
+   LOADER
+===================== */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity .4s;
+}
+
+#loader.hidden-loader {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid rgba(13,110,253,0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* =====================
+   HERO
+===================== */
 #hero {
     background:
-        linear-gradient(
-            rgba(0,0,0,0.7),
-            rgba(0,0,0,0.7)
-        ),
-        linear-gradient(135deg, #0d6efd, #000);
-
+        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+        linear-gradient(135deg, #0d6efd, #6610f2, #0dcaf0);
     color: white;
+    min-height: 100vh;
 }
 
-#hero h1 {
-    font-size: var(--title-size);
-    font-weight: bold;
+#hero h1 { font-size: var(--title-size); font-weight: bold; }
+#hero em { color: #38bdf8; font-style: normal; }
+#hero p { font-size: 1.2rem; }
+
+/* FIX: une seule règle .hero-img */
+.hero-img {
+    max-height: 450px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
 }
 
-#hero em {
-    color: var(--primary);
-    font-style: normal;
-}
+/* =====================
+   SECTIONS
+===================== */
+section { padding: var(--section-padding) 0; }
 
-#hero p {
-    font-size: 1.2rem;
-}
-
-section {
-    padding: var(--section-padding) 0;
-}
-
+/* =====================
+   BENTO GRID
+===================== */
 .bento {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
+.bento .card:nth-child(1) { grid-column: span 2; }
+.bento .card:nth-child(4) { grid-row: span 2; }
 
-.bento .card:nth-child(1) {
-    grid-column: span 2;
-}
-
-.bento .card:nth-child(4) {
-    grid-row: span 2;
-}
-
+/* =====================
+   CARTES
+===================== */
 .card {
     border: none;
     border-radius: var(--radius);
-    transition: var(--transition);
+    overflow: hidden;
+    background: rgba(255,255,255,.95);
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    transition: all .4s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(13,110,253,.2);
 }
 
-/* BOUTONS*/
-
-.btn {
-    border-radius: 30px;
-    padding: 10px 20px;
-}
-
-/*CAROUSEL*/
-
-.carousel-item {
-    min-height: 200px;
-}
-
-.carousel-item p {
-    font-size: 1.2rem;
-}
-
-/*TITRES */
-
-h1,
-h2,
-h3 {
-    font-weight: bold;
-}
-
-/* FOOTER */
-
-footer {
-    margin-top: 40px;
-}
-
-/* IMAGES*/
-
-.rounded-circle {
-    width: 100px;
-    height: 100px;
+.card-img-top {
+    width: 100%;
+    height: 250px;
     object-fit: cover;
+    object-position: center;
+    transition: 0.5s;
 }
 
-/* BADGES  */
+.card:hover .card-img-top { transform: scale(1.05); }
 
+/* =====================
+   IMAGES FREELANCES
+   FIX: object-fit cover pour que le cercle soit vrai
+===================== */
+.rounded-circle {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover;
+    border: 5px solid var(--primary);
+    transition: .4s;
+    display: block;
+}
+
+.card:hover .rounded-circle { transform: scale(1.05); }
+
+/* =====================
+   BOUTONS
+===================== */
+.btn {
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-weight: 600;
+    transition: .3s;
+}
+.btn:hover { transform: translateY(-3px); }
+
+/* =====================
+   CAROUSEL
+===================== */
+.carousel-item { min-height: 200px; }
+.carousel-item p { font-size: 1.2rem; }
+
+/* =====================
+   TITRES
+===================== */
+h1, h2, h3, h4, h5 { font-weight: bold; }
+
+/* =====================
+   FORMULAIRES
+===================== */
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+form input, form textarea, form select { border-radius: 12px; }
+.form-control { padding: 12px; }
+.form-control:focus {
+    box-shadow: 0 0 15px rgba(13,110,253,.25);
+    border-color: var(--primary);
+}
+
+/* =====================
+   BADGES
+===================== */
 .badge {
     font-size: 0.8rem;
+    padding: 8px 12px;
+    border-radius: 20px;
 }
 
-/*FORMULAIRES */
+/* =====================
+   MAP
+===================== */
+iframe { border-radius: var(--radius); }
 
-form input,
-form textarea,
-form select {
-    border-radius: var(--radius);
+/* =====================
+   BLOG HERO
+===================== */
+.blog-hero {
+    background:
+        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+        url("../images/im1.jpeg");
+    background-size: cover;
+    background-position: center;
 }
 
-/* MAP */
-
-iframe {
-    border-radius: var(--radius);
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background: #0f172a !important;
+    color: white;
+    margin-top: 0;
 }
+footer a:hover { color: var(--primary) !important; }
 
-/* BOUTON RETOUR HAUT */
-
+/* =====================
+   BOUTON RETOUR HAUT
+===================== */
 #topBtn {
-
     position: fixed;
-
-    bottom: 20px;
-
-    right: 20px;
-
-    padding: 10px 15px;
-
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
     border: none;
-
     border-radius: 50%;
-
     background: var(--primary);
-
     color: white;
-
     cursor: pointer;
-
     z-index: 999;
-
+    box-shadow: 0 5px 20px rgba(13,110,253,.4);
+    transition: .3s;
+    font-size: 1.2rem;
 }
+#topBtn:hover { transform: scale(1.1); }
 
-/*DARK MODE*/
-
-.dark-mode {
-    background-color: #121212;
-    color: white;
+/* =====================
+   ANIMATIONS
+===================== */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .8s ease;
 }
+.show { opacity: 1; transform: translateY(0); }
+
+/* =====================
+   DARK MODE
+===================== */
+.dark-mode { background: #121212; color: white; }
 
 .dark-mode section {
-    background-color: #121212 !important;
+    background: #121212 !important;
     color: white;
 }
 
-.dark-mode .card {
-    background-color: #1e1e1e;
+/* FIX: bg-light non couvert en dark mode */
+.dark-mode .bg-light {
+    background: #1e1e1e !important;
+}
+
+.dark-mode .card { background: #1e1e1e; color: white; }
+.dark-mode form { background: #1e1e1e; color: white; }
+.dark-mode .form-control {
+    background: #2b2b2b;
+    color: white;
+    border: none;
+}
+.dark-mode footer { background: black !important; }
+.dark-mode .text-muted { color: #aaa !important; }
+.dark-mode .accordion-item { background: #1e1e1e; border-color: #333; }
+.dark-mode .accordion-button {
+    background: #2b2b2b;
     color: white;
 }
+.dark-mode .accordion-body { background: #1e1e1e; color: #ccc; }
 
-.dark-mode footer {
-    background-color: black !important;
-}
+/* =====================
+   TABLEAU
+===================== */
+table { background: white; }
+table th { white-space: nowrap; }
+.card.border-primary { transform: scale(1.05); }
+.card.border-primary:hover { transform: scale(1.08); }
 
-/*ANIMATIONS  */
-
-.hidden {
-
-    opacity: 0;
-
-    transform: translateY(50px);
-
-    transition: all 0.8s ease;
-
-}
-
-.show {
-
-    opacity: 1;
-
-    transform: translateY(0);
-
-}
-
-/* RESPONSIVE TABLETTE */
-
+/* =====================
+   RESPONSIVE TABLETTE
+===================== */
 @media (max-width: 992px) {
-
-    .bento {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+    .bento { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* RESPONSIVE MOBILE */
-
+/* =====================
+   RESPONSIVE MOBILE
+===================== */
 @media (max-width: 768px) {
+    #hero { height: auto; padding: 100px 20px; }
+    #hero h1 { font-size: 2rem; }
+    .bento { grid-template-columns: 1fr; }
+    .card-img-top { height: 200px; }
+    .hero-img { max-height: 300px; }
+}
 
+/* =====================
+   CORRECTIONS RESPONSIVE
+===================== */
+
+/* HERO : padding-top pour compenser la navbar fixed */
+#hero {
+    padding-top: 80px !important;
+}
+
+/* HERO : le col de texte doit être visible même sans image */
+#hero .col-lg-6.hidden {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* BOUTONS hero : empêcher le débordement sur mobile */
+@media (max-width: 576px) {
+    #hero .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0 !important;
+    }
+    /* Badge hero lisible */
+    #hero .badge {
+        font-size: 0.7rem;
+    }
+}
+
+/* IMAGES hero manquantes : ne pas casser le layout */
+.hero-img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* COL hero image : min-height pour ne pas s'effondrer */
+#hero .col-lg-6.text-center {
+    min-height: 20px;
+}
+
+/* NAVBAR desktop : nav-menu visible en ligne */
+@media (min-width: 993px) {
+    .nav-menu {
+        display: flex !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        padding: 0 !important;
+        border: none !important;
+        overflow: visible !important;
+    }
+    .burger-btn {
+        display: none !important;
+    }
+    .nav-overlay {
+        display: none !important;
+    }
+    .nav-menu .nav-link {
+        padding: 8px 12px !important;
+        font-size: 0.9rem !important;
+        width: auto !important;
+    }
+    #darkModeToggle {
+        margin-left: 8px !important;
+        margin-top: 0 !important;
+        width: auto !important;
+    }
+}
+
+/* TABLETTE : navbar burger visible */
+@media (max-width: 992px) {
+    .nav-menu {
+        right: -100%;
+    }
+    .nav-menu.open {
+        right: 0;
+    }
+}
+
+/* SECTION padding-top général pour contenu sous navbar */
+main > section:first-child {
+    padding-top: 80px;
+}
+
+/* HERO min-height mobile correct */
+@media (max-width: 768px) {
     #hero {
-
-        height: auto;
-
-        padding: 80px 20px;
-
+        min-height: 100vh;
+        padding: 100px 0 60px !important;
     }
-
-    #hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .bento {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar {
-        text-align: center;
-    }
-
 }

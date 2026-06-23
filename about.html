@@ -3,316 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfriTalent - A propos</title>
-
+    <title>AfriTalent - À propos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
+    <div id="loader"><div class="spinner"></div></div>
     <button id="topBtn" style="display:none;">↑</button>
+    <div id="navOverlay" class="nav-overlay"></div>
 
-    <div id="loader">
-        <div class="spinner"></div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
-        <div class="container">
-
-            <a class="navbar-brand" href="index.html">
-                Afri<span>Talent</span>
-            </a>
-
-            <button 
-                class="navbar-toggler"
-                data-bs-toggle="collapse"
-                data-bs-target="#navMenu"
-            >
-                <span class="navbar-toggler-icon"></span>
+    <nav class="navbar fixed-top">
+        <div class="container d-flex align-items-center justify-content-between py-2">
+            <a class="navbar-brand text-white fw-bold" href="index.html">Afri<span>Talent</span></a>
+            <button class="burger-btn" id="burgerBtn" aria-label="Menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navMenu">
-
-                <ul class="navbar-nav ms-auto align-items-center">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                            Accueil
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="freelance.html">
-                            Freelances
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="tarif.html">
-                            Tarifs
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="about.html">
-                            A propos
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <button id="darkModeToggle" class="btn btn-outline-light ms-3">
-                            🌙
-                        </button>
-                    </li>
-
-                </ul>
-
+            <div class="nav-menu" id="navMenu">
+                <a class="nav-link" href="index.html">Accueil</a>
+                <a class="nav-link" href="freelance.html">Freelances</a>
+                <a class="nav-link" href="tarif.html">Tarifs</a>
+                <a class="nav-link active" href="about.html">À propos</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="blog.html">Blog</a>
+                <button id="darkModeToggle">🌙</button>
             </div>
-
         </div>
-
     </nav>
 
     <main>
 
-        <section 
-            class="text-center text-white d-flex align-items-center"
-            style="height:50vh; background:#222;"
-        >
-
+        <section class="text-center text-white d-flex align-items-center" style="height:50vh; background:#222;">
             <div class="container">
-
                 <h1>À propos d'AfriTalent</h1>
-
-                <p>
-                    Une plateforme qui connecte talents,
-                    innovation et opportunités à travers l'Afrique.
-                </p>
-
+                <p>Une plateforme qui connecte talents, innovation et opportunités à travers l'Afrique.</p>
             </div>
-
         </section>
 
         <section class="py-5 hidden">
-
             <div class="container">
-
-                <h2 class="mb-4 text-center">
-                    Notre histoire
-                </h2>
-
-                <p class="text-center">
-                    AfriTalent est né d'une idée simple :
-                    permettre aux talents tech africains
-                    d'avoir accès aux mêmes opportunités
-                    que partout ailleurs dans le monde.
-                </p>
-
-                <p class="text-center">
-                    De nombreux développeurs, designers,
-                    experts marketing et spécialistes digitaux
-                    disposent d'un immense potentiel,
-                    mais rencontrent souvent des difficultés
-                    pour trouver des clients ou collaborer
-                    avec des entreprises innovantes.
-                </p>
-
-                <p class="text-center">
-                    C'est pour répondre à ce besoin qu'AfriTalent
-                    a été créé. Notre objectif est de construire
-                    une plateforme moderne, accessible et sécurisée
-                    qui facilite les échanges entre freelances
-                    et entreprises.
-                </p>
-
-                <p class="text-center">
-                    Aujourd'hui, AfriTalent ambitionne de devenir
-                    une référence du freelancing tech en Afrique
-                    en mettant en avant les compétences,
-                    la créativité et l'innovation africaine.
-                </p>
-
+                <h2 class="mb-4 text-center">Notre histoire</h2>
+                <p class="text-center">AfriTalent est né d'une idée simple : permettre aux talents tech africains d'avoir accès aux mêmes opportunités que partout ailleurs dans le monde.</p>
+                <p class="text-center">De nombreux développeurs, designers, experts marketing et spécialistes digitaux disposent d'un immense potentiel, mais rencontrent souvent des difficultés pour trouver des clients ou collaborer avec des entreprises innovantes.</p>
+                <p class="text-center">C'est pour répondre à ce besoin qu'AfriTalent a été créé. Notre objectif est de construire une plateforme moderne, accessible et sécurisée qui facilite les échanges entre freelances et entreprises.</p>
+                <p class="text-center">Aujourd'hui, AfriTalent ambitionne de devenir une référence du freelancing tech en Afrique en mettant en avant les compétences, la créativité et l'innovation africaine.</p>
             </div>
-
         </section>
 
         <section class="py-5 bg-light text-center hidden">
-
             <div class="container">
-
                 <h2>Notre équipe</h2>
-
                 <div class="row mt-4 g-4">
-
                     <div class="col-md-3">
-
                         <div class="card p-3 h-100">
-
-                            <img 
-                                src="images/im7.jpeg"
-                                class="rounded-circle mx-auto"
-                                width="200"
-                                height="250"
-                            >
-
-                            <h5 class="mt-3">
-                                Alamine Abani
-                            </h5>
-
-                            <p>CEO</p>
-
+                            <img src="images/im7.jpeg" class="rounded-circle mx-auto" width="150" height="150" alt="Alamine Abani">
+                            <h5 class="mt-3">Alamine Abani</h5><p>CEO</p>
                         </div>
-
                     </div>
-
                     <div class="col-md-3">
-
                         <div class="card p-3 h-100">
-
-                            <img 
-                                src="images/im8.jpeg"
-                                class="rounded-circle mx-auto"
-                                width="200"
-                                height="250"
-                            >
-
-                            <h5 class="mt-3">
-                                Mahamat Abani
-                            </h5>
-
-                            <p>Designer</p>
-
+                            <img src="images/im8.jpeg" class="rounded-circle mx-auto" width="150" height="150" alt="Mahamat Abani">
+                            <h5 class="mt-3">Mahamat Abani</h5><p>Designer</p>
                         </div>
-
                     </div>
-
                     <div class="col-md-3">
-
                         <div class="card p-3 h-100">
-
-                            <img 
-                                src="images/im9.jpeg"
-                                class="rounded-circle mx-auto"
-                                width="200"
-                                height="250"
-                            >
-
-                            <h5 class="mt-3">
-                                Daoud Abakar
-                            </h5>
-
-                            <p>Développeur</p>
-
+                            <img src="images/im9.jpeg" class="rounded-circle mx-auto" width="150" height="150" alt="Daoud Abakar">
+                            <h5 class="mt-3">Daoud Abakar</h5><p>Développeur</p>
                         </div>
-
                     </div>
-
                     <div class="col-md-3">
-
                         <div class="card p-3 h-100">
-
-                            <img 
-                                src="images/im10.jpeg"
-                                class="rounded-circle mx-auto"
-                                width="200"
-                                height="250"
-                            >
-
-                            <h5 class="mt-3">
-                                Adam Abakar
-                            </h5>
-
-                            <p>Marketing</p>
-
+                            <img src="images/im10.jpeg" class="rounded-circle mx-auto" width="150" height="150" alt="Adam Abakar">
+                            <h5 class="mt-3">Adam Abakar</h5><p>Marketing</p>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <section class="py-5 text-center hidden">
-
             <div class="container">
-
                 <h2>Nos valeurs</h2>
-
                 <div class="row mt-5">
-
                     <div class="col-md-3">
-
                         <h4>Innovation</h4>
-
-                        <p>
-                            Construire des solutions modernes
-                            adaptées au marché africain.
-                        </p>
-
+                        <p>Construire des solutions modernes adaptées au marché africain.</p>
                     </div>
-
                     <div class="col-md-3">
-
                         <h4>Accessibilité</h4>
-
-                        <p>
-                            Donner leur chance à tous les talents.
-                        </p>
-
+                        <p>Donner leur chance à tous les talents.</p>
                     </div>
-
                     <div class="col-md-3">
-
                         <h4>Communauté</h4>
-
-                        <p>
-                            Encourager la collaboration
-                            et l'entraide.
-                        </p>
-
+                        <p>Encourager la collaboration et l'entraide.</p>
                     </div>
-
                     <div class="col-md-3">
-
                         <h4>Excellence</h4>
-
-                        <p>
-                            Garantir qualité,
-                            performance et professionnalisme.
-                        </p>
-
+                        <p>Garantir qualité, performance et professionnalisme.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
     </main>
 
-    <footer class="bg-dark text-white text-center p-3">
-
-        <p>
-            © 2026 AfriTalent - Tous droits réservés
-        </p>
-
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="bi bi-code-square"></i> AfriTalent</h5>
+                    <p>La première plateforme africaine dédiée aux freelances tech.</p>
+                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6>Liens utiles</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Accueil</a></li>
+                        <li><a href="freelance.html" class="text-white-50 text-decoration-none">Freelances</a></li>
+                        <li><a href="tarif.html" class="text-white-50 text-decoration-none">Tarifs</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">À propos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6>Ressources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="blog.html" class="text-white-50 text-decoration-none">Blog</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Guide du freelance</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6>Contact</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope"></i> hello@afritalent.com</li>
+                        <li><i class="bi bi-telephone"></i> +221 78 123 45 67</li>
+                        <li><i class="bi bi-geo-alt"></i> Dakar, Sénégal</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center mb-0">© <span id="currentYear"></span> AfriTalent. Tous droits réservés.</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="js/main.js"></script>
-
 </body>
 </html>
